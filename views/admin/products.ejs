@@ -1,0 +1,61 @@
+<%- include('../includes/head.ejs') %>
+  </head>
+
+  <body>
+    <%- include('../includes/nav.ejs') %>
+      <div class="container" style="padding: 1rem 0;">
+        <br>
+        <h1 class="heading text-center text-decoration-underline">
+          <%= pageTitle %>
+        </h1>
+        <br>
+        <div class="row row-cols-1 row-cols-md-4 d-flex justify-content-center g-3"">
+          <% if (prods.length> 0){ %>
+            <% for (let product of prods ){ %>
+              <div class=" col">
+          <div class="card">
+            <img src="<%= product.image %> " style="height: 250px" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">
+                <%= product.title %>
+              </h5>
+              <p class="card-text">Rs. <%= product.price %>
+              </p>
+              <p class="card-text">
+                <%= product.description %>
+              </p>
+            </div>
+            <div class="btn-group">
+              <a class="btn btn-warning" style="width: 100%;" href="/edit-product/<%= product._id %>">Edit</a>
+                <input type="hidden" name="productId" value="<%= product._id %>" />
+                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                <button class="btn btn-info" style="width: 100%;" onClick="deleteProduct(this)">Delete</>
+            </div>
+          </div>
+        </div>
+        <% } %>
+          <% }else { %>
+            <p>No products yet.</p>
+            <% } %>
+      </div>
+      <br>
+        <nav aria-label="Page navigation example">
+          <ul class="pagination justify-content-center">
+            <% if(currentPage !== 1 && prevPage !==1 ){ %> 
+            <li class="page-item"><a class="page-link" href="?page=1">1</a></li>
+            <% } %> 
+            <% if(hasPrevPage){ %> 
+            <li class="page-item"><a class="page-link" href="?page=<%= prevPage %>"><%= prevPage %> </a></li>
+            <% } %> 
+            <% if(hasNextPage){ %> 
+              <li class="page-item"><a class="page-link" href="?page=<%= nextPage %>"><%= nextPage %> </a></li>
+              <% } %>
+              <% if(lastPage !== currentPage && nextPage !== lastPage) {%>
+                <li class="page-item"><a class="page-link">...</a></li>
+              <li class="page-item"><a class="page-link" href="?page=<%= lastPage %>"><%= lastPage %> </a></li>
+                <% } %>  
+          </ul>
+        </nav>
+      </div>
+      <script src="js/ajax.js"></script>
+      <%- include('../includes/end.ejs') %>

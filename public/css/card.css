@@ -1,0 +1,79 @@
+/* .card {
+  height: 20rem;
+  width: 17rem;
+  border: 1px solid black;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.card form {
+  width: 100%;
+}
+.card-image {
+  height: 70%;
+  width: 100%;
+  overflow: hidden;
+}
+.card-image img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  transition: 0.5s ease-in-out;
+}
+.card-image img:hover {
+  transform: scale(1.1);
+}
+.card-content {
+  width: 100%;
+  height: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 0.2rem;
+}
+.card-content h3 {
+  text-transform: capitalize;
+  cursor: pointer;
+  font-weight: 400;
+  font-size: 1.5rem;
+}
+.card-content p {
+  text-transform: capitalize;
+  font-weight: 300;
+  font-size: 1rem;
+}
+.card-content button {
+  height: 2rem;
+  width: 100%;
+  outline: none;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+.card-action {
+  height: 2rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.card-action form {
+  height: 100%;
+  width: 100%;
+}
+.card-action a {
+  height: 100%;
+  width: 100%;
+  background-color: rosybrown;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+.card-action form a {
+  width: 100%;
+} */

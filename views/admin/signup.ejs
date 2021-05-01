@@ -1,0 +1,39 @@
+<%- include('../includes/head.ejs') %>
+  </head>
+  <style>
+    .invalid {
+      border: 1px solid red;
+    }
+  </style>
+  <body>
+    <%- include('../includes/nav.ejs') %>
+      <div class="container py-3">
+        <% if(errorMessage){ %>
+          <p class="alert alert-danger" role="alert">
+            <%= errorMessage %>
+          </p>
+          <% } %>
+            <br>
+            <h1 class="heading text-center text-decoration-underline">
+              <%= pageTitle %>
+            </h1>
+            <br>
+            <form action="/signup" method="POST" novalidate>
+              <div class="mb-3">
+                <label class="form-label">Email</label>
+                <input class="form-control <%= validationErrors.find(e => e.param === "email") ?  "invalid" : '' %> " type="email" name="email" />
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Password</label>
+                <input class="form-control <%= validationErrors.find(e => e.param === "password") ?  "invalid" : '' %>" type="password" name="password" />
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Confirm Password</label>
+                <input class="form-control <%= validationErrors.find(e => e.param === "confirmPassword") ?  "invalid" : '' %>" type="password" name="confirmPassword" />
+              </div>
+              <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+              <button type="submit" class="btn btn-primary">
+                Signup
+              </button>
+            </form>
+            <%- include('../includes/end.ejs') %>
